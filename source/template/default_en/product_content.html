@@ -1,0 +1,76 @@
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="{print content('info')/}">
+<meta name="keywords" content="{print content('keywords')/}">
+<title>{print content('small_title')/}_{print cateinfo('cate_title_seo')/}_{print webinfo('web_name')/}</title>
+<link rel="stylesheet" type="text/css" href="{path template/}/style/common.css">
+<script type="text/javascript" src="{path template/}/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{path template/}/js/common.js"></script>
+</head>
+<body>
+{include head/}
+
+{include inner_banner/}
+
+<div class="wrap mb15">
+    <div class="main group">
+
+        <div class="ibox">
+            <div class="ibox_top">
+                <div class="guide fr">
+                    <span>Position：</span>{position source=position/}
+                </div>
+                <b class="ibox_home_title blue_ico">{print get_cate(out_id())/}</b>
+            </div>
+            <div class="ibox_body min600">
+                <div class="ibox_inner">
+                    <h1 class="news_title">{print content('title')/}</h1>
+                    <div class="news_statu">
+                        <span>Read:<script language="javascript" src="{path includes/}/hits.php?id={print content('id')/}"></script></span>
+						<span>Date:{print date('Y-m-d H:m:s',content('updatetime'))/}</span>
+                    </div>
+                    <div class="news_body">
+                        <div class="center">
+                        	{loop source=album('pics')}
+							{if $v['first']}
+							<img src="{print $v['pic']/}" title="{print content('title')/}"/>
+							{/if}
+							{/loop}
+                            <!-- <img src="images/pro_img001.jpg"> -->
+                        </div>
+                        <div class="pro_tab">
+                            <div class="pro_tab_head"><b>Product Introduction：</b></div>
+                            <div class="pro_tab_body">
+                                {print content('content')/}
+                            </div>
+                        </div>
+                        <div class="pro_tab">
+                            <div class="pro_tab_head"><b>Technical Parameters：</b></div>
+                            <div class="pro_tab_body">
+                                {print content('tech_detail')/}
+                            </div>
+                        </div>
+                        <div class="pro_tab">
+                            <div class="pro_tab_head"><b>Product Picture：</b></div>
+                            <div class="pro_tab_body">
+                                {loop source=album('pics')}
+                                	<img src="{print $v['pic']/}" alt="{print $v['alt']/}" style="max-width:800px;" /><br>
+                                {/loop}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+{include foot/}
+</body>
+</html>

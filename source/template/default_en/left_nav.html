@@ -1,0 +1,39 @@
+
+<div class="leftBar">
+	<!-- 产品栏目 -->
+	 <div class="leftbox mb8">
+	 	<!-- {print get_cate_last_parent(out_id())/} -->
+	 	{if get_cate_last_parent(out_id()) ==18}
+	    <div class="lb_head"><img src="{path template/}/images/lhead_005.gif"></div>
+	    {/if}
+	    {if get_cate_last_parent(out_id()) ==22}
+	    <div class="lb_head"><img src="{path template/}/images/lhead_003.gif"></div>
+	    {/if}
+	    {if get_cate_last_parent(out_id()) ==20}
+	    <div class="lb_head"><img src="{path template/}/images/lhead_006.gif"></div>
+	    {/if}
+	    {if get_cate_last_parent(out_id()) ==49}
+	    <div class="lb_head"><img src="{path template/}/images/lhead_004.gif"></div>
+	    {/if}
+	    {if get_cate_last_parent(out_id()) == 50}
+	    <div class="lb_head"><img src="{path template/}/images/lhead_007.gif"></div>
+	    {/if}
+	    <div class="lb_body">
+	    	{assign source=get_tpl_list_nav() name=tree/}
+		    {if $tree}
+		        <ul class="lb_sbunav">
+		        	{loop source=$tree}
+		        	<li><span></span><a href="{print $v['url']/}"  class="{print $v['class']/}" {print $v['target']/} title="{print $v['cate_name']/}">{print $v['cate_name']/}</a></li>
+		        	{/loop}
+		        </ul>
+	        {/if}
+	    </div>
+	</div>
+	<!-- 联系我们 -->
+	<div class="leftbox">
+	    <div class="lb_head"><img src="{path template/}/images/lhead_001.gif"></div>
+	    <div class="lb_body">
+	        {print get_block_content('en_contact')/}
+	    </div>
+	</div>
+</div>

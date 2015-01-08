@@ -1,0 +1,14 @@
+
+
+<div class="footer">
+    <div class="wrap">
+
+        {print webinfo('web_powerby')/}
+        <p>
+			{loop source=nav_bottom()}
+				<a href="{print $v['url']/}" title="{print $v['cate_name']/}">
+				{print $v['cate_name']/}</a>{if !$v['last']}|{/if}
+			{/loop}
+        </p>
+    </div>
+</div>

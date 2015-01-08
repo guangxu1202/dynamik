@@ -1,0 +1,72 @@
+<!Doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="{print content('info')/}">
+<meta name="keywords" content="{print content('keywords')/}">
+<title>{print content('small_title')/}_{print cateinfo('cate_title_seo')/}_{print webinfo('web_name')/}</title>
+<link rel="stylesheet" type="text/css" href="{path template/}/style/common.css">
+<script type="text/javascript" src="{path template/}/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{path template/}/js/common.js"></script>
+</head>
+<body>
+{include head/}
+
+
+{include inner_banner/}
+
+<div class="wrap mb15">
+    <div class="main group">
+
+        <div class="ibox">
+            <div class="ibox_top">
+                <div class="guide fr">
+                    <span>Position：</span> {position source=position/}
+                </div>
+                <b class="ibox_home_title blue_ico">{print get_cate(out_id())/}</b>
+            </div>
+            <div class="ibox_body min600">
+                <div class="ibox_inner">
+                    <h1 class="news_title">{print content('title')/}</h1>
+                    <div class="news_statu">
+                        <span>Read:<script language="javascript" src="{path includes/}/hits.php?id={print content('id')/}"></script></span>
+                        <span>Date:{print date('Y-m-d H:m:s',content('updatetime'))/}</span>
+                    </div>
+                    <div class="news_body">
+                    	 {assign source=content('down') name=down/}
+                        <dl class="downloads group">
+                            <dt class="dt">File Type：</dt>
+                            <dd class="dd">{print $down['type']/}</dd>
+                        </dl>
+                        <dl class="downloads group">
+                            <dt class="dt">File Size：</dt>
+                            <dd class="dd">{print $down['size']/}KB</dd>
+                        </dl>
+                        <dl class="downloads group">
+                            <dt class="dt">File Download：</dt>
+                            <dd class="dd"><a href="{print $down['url']/}" class="red" target="_blank">Download</a></dd>
+                        </dl>
+                        <dl class="downloads group">
+                            <dt class="dt">File Description：</dt>
+                            <dd class="dd" style="min-height:300px;">
+                                {print content('content')/}
+                            </dd>
+                        </dl>
+                    </div>
+					<div class="arc_link" style="clear:both">
+					{assign source=content('prev') name=prev/}
+					{if $prev}<span>prev：<a href="{print $prev['url']/}">{print $prev['title']/}</a></span>{else}<span>prev：none</span>{/if}
+					{assign source=content('next') name=next/}
+					{if $next}<span>next：<a href="{print $next['url']/}">{print $next['title']/}</a></span>{else}<span>next：none</span>{/if}
+					</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{include foot/}
+</body>
+</html>

@@ -1,0 +1,34 @@
+
+<div class="header">
+    <div class="wrap">
+        <div class="top">
+            <div class="fr version">
+                <!-- <a href="{path index/}" class="chinese">中文版</a>
+                <a href="{path index/}" class="english">English</a> -->
+                {loop source=lang()}<a href="{print $v['url']/}" {print $v['class']/}>{print $v['lang_name']/}</a>{/loop}
+            </div>
+            <a href="{path index/}" class="logo"><img src="{path cms/}upload/{print webinfo('web_logo')/}" border="0"/></a>
+        </div>
+    </div>
+</div>
+<div class="nav mb15">
+    <div class="wrap">
+        <ul>
+			<li class="{print get_web_param('index_focus')/}"><a href="{path index/}">Home</a></li>
+			{loop source=nav_middle() item=$nav_child} 
+			<li class="{print $nav_child['class']/}"><a href="{print $nav_child['url']/}" {print $nav_child['target']/}>{print $nav_child['cate_name']/}</a>
+                {if fix_count($nav_child['child'])>0}
+                    <div class="cbox c{print $nav_child['id']/}">
+                    {loop source=$nav_child['child']}
+                    <a href="{print $v['url']/}"> {print $v['cate_name']/} </a>
+                    {/loop}
+                    </div>
+                {/if}
+            </li>
+			{/loop}
+
+		</ul>
+    </div>
+</div>
+
+
